@@ -369,7 +369,7 @@ export default function Order() {
                 ) : (
                   <>
                     <Grid item xs={12}>
-                      <h3 align='center'>BY THE BOTTLE</h3>
+                      <h3 align='center'>BOTTLES</h3>
                     </Grid>
                     {bottleFlavors?.map(({ name, description, outOfStock }) => {
                       return dropDown(name, description, outOfStock);
