@@ -23,6 +23,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import BusinessIcon from '@mui/icons-material/Business';
 import IconButton from '@mui/material/IconButton';
 import Divider from '@material-ui/core/Divider';
+import ThumbsIcon from '@mui/icons-material/ThumbsUpDown';
 
 // core components
 import SnackbarContent from '../components/Snackbar/SnackbarContent';
@@ -81,6 +82,7 @@ export default function Order() {
       address: values.address,
       name: values.name,
       taxID: values.taxID,
+      comments: values.comments,
     });
 
     setLoadingOpen(true);
@@ -172,6 +174,7 @@ export default function Order() {
     taxID: Yup.string(),
     company: Yup.string().required('Required'),
     total: Yup.string(),
+    comments: Yup.string(),
   });
 
   const initialFlavors = flavorCatalog.reduce((acc, flavor) => {
@@ -189,6 +192,7 @@ export default function Order() {
         taxID: '',
         total: 0,
         company: '',
+        comments: '',
       },
       enableReinitialize: true,
       validationSchema: validationSchema,
@@ -316,7 +320,7 @@ export default function Order() {
                       color: '#55acee',
                     }}
                   >
-                    Wholesale Order Kombucha
+                    Wholesale Kombucha
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
@@ -554,6 +558,31 @@ export default function Order() {
                                 className={classes.inputIconsColor}
                               />
                             </InputAdornment>
+                          ),
+                        }}
+                      />
+                    </Grid>
+                    <Grid item xs={12} md={4} key={'comments'}>
+                      <TextField
+                        fullWidth
+                        multiline
+                        id='comments'
+                        name='comments'
+                        label='Comments or Feedback'
+                        value={formik.values.comments}
+                        onChange={formik.handleChange}
+                        error={
+                          formik.touched.comments &&
+                          Boolean(formik.errors.comments)
+                        }
+                        helperText={
+                          formik.touched.comments && formik.errors.comments
+                        }
+                        InputProps={{
+                          endAdornment: (
+                            <ThumbsIcon position='end'>
+                              <Favorite className={classes.inputIconsColor} />
+                            </ThumbsIcon>
                           ),
                         }}
                       />
