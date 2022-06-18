@@ -5,17 +5,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 import Layout from '../components/layout';
 import CardBody from '../components/Card/CardBody';
-import Button from '../components/CustomButtons/Button.js';
 import componentStyles from '../styles/jss/nextjs-material-kit/pages/components';
 import styles from 'styles/jss/nextjs-material-kit/components/headerLinksStyle.js';
 
 const useComponentStyles = makeStyles(componentStyles);
 
 const useStyles = makeStyles(styles);
-
-export default function Where() {
-  const componentClasses = useComponentStyles();
-  const classes = useStyles();
 
   const locations = [
     {
@@ -54,9 +49,35 @@ export default function Where() {
       address: '5833 Nieman Rd, Shawnee, KS 66203',
       site: 'https://www.mclainskc.com/shawnee',
     },
+  {
+    name: 'Thou Mayest Coffee',
+    address:
+      '412 Delaware St B, Kansas City, MO 64105, and 7036 Nieman Rd, Shawnee, KS 66203',
+    site: 'https://thoumayest.com/',
+  },
+  {
+    name: 'PH Coffee',
+    // GPS: ['39.022312571100215', '-94.71417317313768'],
+    address: '2200 Lexington Ave. Kansas City, MO 64124',
+    site: 'https://www.ph.coffee',
+  },
+  {
+    name: 'Room 39',
+    // GPS: ['39.022312571100215', '-94.71417317313768'],
+    address: '1719 W 39th Street, KCMO 64111',
+    site: 'https://www.rm39.com',
+  },
   ];
 
-  const openMap = (GPS) => {
+export default function Where() {
+  const componentClasses = useComponentStyles();
+  const classes = useStyles();
+  const openMap = (location) => {
+    const { GPS, site } = location;
+    if (!GPS) {
+      window.open(site);
+      return;
+    }
     const platform = navigator?.userAgentData?.platform || navigator?.platform;
 
     if (
@@ -107,7 +128,7 @@ export default function Where() {
                     className={classes.link}
                     item
                     xs={12}
-                    onClick={() => openMap(location.GPS)}
+                      onClick={() => openMap(location)}
                   >
                     {location.address}
                   </Grid>
