@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { send } from 'emailjs-com';
+import Image from 'next/image';
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles';
 import { useFormik } from 'formik';
@@ -389,6 +389,32 @@ export default function Order() {
                     />
                     <Grid item xs={12}>
                       <h3 align='center'>CANS</h3>
+                      <div align='center'>
+                        <Image
+                          src='/img/Blueberry+Mint can.png'
+                          width='80px'
+                          height='100px'
+                          style=''
+                        />
+                        <Image
+                          src='/img/Ginger+Lemon can.png'
+                          width='80px'
+                          height='100px'
+                          style=''
+                        />
+                        <Image
+                          src='/img/Lavender+Berry can.png'
+                          width='80px'
+                          height='100px'
+                          style=''
+                        />
+                        <Image
+                          src='/img/Straw-Merry can.png'
+                          width='80px'
+                          height='100px'
+                          style=''
+                        />
+                      </div>
                     </Grid>
                     {canFlavors?.map(({ name, description, outOfStock }) => {
                       return dropDown(name, description, outOfStock);
