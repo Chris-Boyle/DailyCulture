@@ -391,26 +391,26 @@ export default function Order() {
                       <h3 align='center'>CANS</h3>
                       <div align='center'>
                         <Image
-                          src='/img/Blueberry+Mint can.png'
-                          width='80px'
+                          src='/img/Blueberry-Mint can.png'
+                          width='75px'
                           height='100px'
                           style=''
                         />
                         <Image
-                          src='/img/Ginger+Lemon can.png'
-                          width='80px'
+                          src='/img/Ginger-Lemon can.png'
+                          width='75px'
                           height='100px'
                           style=''
                         />
                         <Image
-                          src='/img/Lavender+Berry can.png'
-                          width='80px'
+                          src='/img/Lavender-Berry can.png'
+                          width='75px'
                           height='100px'
                           style=''
                         />
                         <Image
                           src='/img/Straw-Merry can.png'
-                          width='80px'
+                          width='75px'
                           height='100px'
                           style=''
                         />
