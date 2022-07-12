@@ -115,6 +115,12 @@ export default function Where() {
     }
     const platform = navigator?.userAgentData?.platform || navigator?.platform;
 
+    if (!GPS) {
+      return window.open(
+        `https://www.google.com/maps/search/?api=1&query=${address}`
+      );
+    }
+
     if (
       /* if we're on iOS, open in Apple Maps */
       platform.indexOf('iPhone') != -1 ||
