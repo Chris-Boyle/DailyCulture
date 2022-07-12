@@ -119,7 +119,7 @@ export default function Where() {
       /* if we're on iOS, open in Apple Maps */
       platform.indexOf('iPhone') != -1 ||
       platform.indexOf('iPad') != -1 ||
-      (platform.indexOf('iPod') != -1 && GPS)
+      (platform.indexOf('iPod') != -1 && !!GPS)
     )
       window.open(`maps://maps.google.com/maps/dir/?daddr=${GPS}&amp;ll=`);
     // else use Google
