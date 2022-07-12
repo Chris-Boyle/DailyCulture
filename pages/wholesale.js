@@ -170,7 +170,7 @@ export default function Order() {
     email: Yup.string().email('Invalid email address').required('Required'),
     phone: Yup.string(),
     name: Yup.string().required('Required'),
-    address: Yup.string(),
+    address: Yup.string().required('Required'),
     taxID: Yup.string(),
     company: Yup.string().required('Required'),
     total: Yup.string(),
@@ -522,9 +522,10 @@ export default function Order() {
                     <Grid item xs={12} md={4} key={'address'}>
                       <TextField
                         fullWidth
+                        required
                         id='address'
                         name='address'
-                        label='Address - (optional)'
+                        label='Delivery Address'
                         value={formik.values.address}
                         onChange={formik.handleChange}
                         error={

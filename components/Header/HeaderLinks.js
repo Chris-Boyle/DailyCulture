@@ -46,7 +46,7 @@ export default function HeaderLinks(props) {
           className={classes.navLink}
         >
           <MapsHomeWorkIcon />
-          Home Delivery
+          Order
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
@@ -56,7 +56,7 @@ export default function HeaderLinks(props) {
           className={classes.navLink}
         >
           <TravelExploreIcon />
-          Where to buy
+          Where
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
