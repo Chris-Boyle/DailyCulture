@@ -108,8 +108,8 @@ export default function Where() {
   const componentClasses = useComponentStyles();
   const classes = useStyles();
   const openMap = (location) => {
-    const { GPS, site } = location;
-    if (!GPS) {
+    const { GPS, site, address } = location;
+    if (!address && !GPS) {
       window.open(site);
       return;
     }
@@ -119,11 +119,14 @@ export default function Where() {
       /* if we're on iOS, open in Apple Maps */
       platform.indexOf('iPhone') != -1 ||
       platform.indexOf('iPad') != -1 ||
-      platform.indexOf('iPod') != -1
+      (platform.indexOf('iPod') != -1 && GPS)
     )
       window.open(`maps://maps.google.com/maps/dir/?daddr=${GPS}&amp;ll=`);
-    /* else use Google */ else
-      window.open(`https://maps.google.com/maps/dir/?daddr=${GPS}&amp;ll=`);
+    // else use Google
+    else {
+      window.open(`https://www.google.com/maps/search/?api=1&query=${address}`);
+    }
+    // window.open(`https://maps.google.com/maps/dir/?daddr=${GPS}&amp;ll=`);
   };
 
   return (
